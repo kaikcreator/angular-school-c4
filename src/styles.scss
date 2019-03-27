@@ -17,3 +17,26 @@ button{
         outline: none;
     }
 }
+
+app-header{
+    a {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        text-decoration: none;
+        color: gray;
+
+        &:hover{
+            color: gray;
+            border-bottom: 4px solid gray;
+            margin-bottom: -4px;
+        }
+
+        &.active-link{
+            color: black;
+            border-bottom: 4px solid black;
+            margin-bottom: -4px;
+        }
+    }
+}
