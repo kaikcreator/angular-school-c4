@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { Contact } from '../contact.model';
 import { ContactsService } from '../contacts.service';
 
@@ -9,14 +11,17 @@ import { ContactsService } from '../contacts.service';
 })
 export class ContactsListComponent implements OnInit {
   public contacts:Contact[] = [];
-  constructor(public contactsService:ContactsService) { }
+  constructor(
+    public contactsService:ContactsService, 
+    public router: Router
+  ) { }
 
   ngOnInit() {
     this.contacts = this.contactsService.contacts;
   }
 
   onContactSelected(id:number){
-    //navigate to contact-detail    
+    this.router.navigate(["contact-detail", id, {foo:"bar"}]); 
   }
 
 }
