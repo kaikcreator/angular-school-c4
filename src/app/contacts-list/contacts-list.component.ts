@@ -12,11 +12,11 @@ export class ContactsListComponent implements OnInit {
   constructor(public contactsService:ContactsService) { }
 
   ngOnInit() {
-    this.contacts = this.contactsService.getContacts();
+    this.contacts = this.contactsService.contacts;
   }
 
   onContactSelected(id:number){
-    this.contactsService.selectContactById(id);
+    //navigate to contact-detail    
   }
 
 }

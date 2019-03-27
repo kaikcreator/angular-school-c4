@@ -5,22 +5,18 @@ import { Contact, PhoneType} from './contact.model';
     providedIn: 'root'
 })
 export class ContactsService {
+    public readonly contacts:Contact[] = null;
 
-    public selectedContact:Contact = null;
-    constructor() { }
-
-    selectContactById(id){
-        if(this.selectedContact && this.selectedContact.id === id){
-            this.selectedContact = null;
-        }
-        else{
-            this.selectedContact = this.getContacts()
-            .filter(item => item.id === id)[0];
-        }
-
+    constructor() { 
+        this.contacts = this.loadContacts();
     }
 
-    getContacts(){
+    getContactById(id){
+        let contactMatches = this.contacts.filter(item => item.id === id);
+        return contactMatches.length ? contactMatches[0] : null;
+    }
+
+    private loadContacts(){
         return [
             new Contact(1, "Albert", "assets/default-user.png", [
                 {type:PhoneType.work, number:93200621621 },
