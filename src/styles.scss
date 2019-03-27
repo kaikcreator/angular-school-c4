@@ -1,8 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-button{
+@mixin button-base{
     padding: 8px 24px;
-    border-width: 1px;
-    border-color: black;  
+    border: 1px solid black; 
+    font-size: 12px;
+    font-family: initial;
 
     &:hover{
         background-color: #EEE;
@@ -11,12 +12,21 @@ button{
     &:active{
         background-color: #CCC;
         transition: 0.1s;
-    }
-    
+    }    
     &:focus{
         outline: none;
     }
 }
+a.button {
+    text-decoration: none;
+    color: initial;
+    @include button-base; 
+}
+
+button{
+    @include button-base;
+}
+
 
 app-header{
     a {
