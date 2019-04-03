@@ -19,7 +19,7 @@ export class TitleService {
     init(){
         this.router.events.pipe(
             filter(event => event instanceof NavigationEnd),
-            map((evt:NavigationEnd) => evt.url),
+            map((evt:NavigationEnd) => evt.urlAfterRedirects),
         ).subscribe(title => this.titleSubject.next(title));
     }
 
