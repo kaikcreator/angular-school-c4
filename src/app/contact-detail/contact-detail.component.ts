@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { map, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 import { ContactsService } from '../contacts.service';
-import { Contact, PhoneType } from '../contact.model';
+import { Contact } from '../contact.model';
 
 @Component({
   selector: 'app-contact-detail',
@@ -21,16 +21,11 @@ export class ContactDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.pipe(
-      tap(params => console.log("FOO: ", params.get('foo'))),
       map(params => Number(params.get('id')))
     )
     .subscribe(id => {
       this.contact = this.contactsService.getContactById(id);
     });
-
-    this.route.queryParamMap.subscribe(params => {
-      console.log("query params: ", params);
-    })
   }
 
 }
