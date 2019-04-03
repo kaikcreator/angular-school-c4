@@ -11,10 +11,10 @@ import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 const appRoutes: Routes = [
-  { path: 'contacts', component: ContactsListComponent },
-  { path: 'contact-detail/:id', component: ContactDetailComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'not-found', component:NotFoundComponent},
+  { path: 'contacts', component: ContactsListComponent, data:{title: "Contacts"} },
+  { path: 'contact-detail/:id', component: ContactDetailComponent, data:{title: "Contact detail"} },
+  { path: 'login', component: LoginComponent, data:{title: "Login"} },
+  { path: 'not-found', component:NotFoundComponent, data:{title: "Ooops! 404"}},  
   { path: '',
     redirectTo: '/contacts',
     pathMatch: 'full'
