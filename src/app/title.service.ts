@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { Subject, Observable } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
 
@@ -11,8 +11,7 @@ export class TitleService {
     public title$:Observable<string> = this.titleSubject.asObservable();
 
     constructor(
-        private router:Router,
-        private activatedRoute:ActivatedRoute
+        private router:Router
     ){ 
         this.init();
     }
