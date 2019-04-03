@@ -4,8 +4,7 @@
     <div class="contacts-list">
         <app-contact *ngFor="let contact of contacts"
         [contact]="contact"
-        [routerLink]="['/contact-detail', contact.id,  {foo:'bar2'}]"
-        [queryParams]="{param1: true, param2:'hola'}"
+        [routerLink]="['/contact-detail', contact.id]"
         ></app-contact>
     </div>
 </div>

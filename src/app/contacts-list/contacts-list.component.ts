@@ -20,13 +20,4 @@ export class ContactsListComponent implements OnInit {
     this.contacts = this.contactsService.contacts;
   }
 
-  onContactSelected(id:number){
-    this.router.navigate(["contact-detail", id,  {foo:"bar"}],{
-      queryParams:{
-        hello:"world",
-        affiliateId: 12345
-      }
-    }); 
-  }
-
 }
