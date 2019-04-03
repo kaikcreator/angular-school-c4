@@ -20,6 +20,7 @@ export class ContactDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.route.data.subscribe(data => console.log("data is: ", data));
     this.route.paramMap.pipe(
       map(params => Number(params.get('id')))
     )
