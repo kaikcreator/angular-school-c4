@@ -27,6 +27,10 @@ export class ContactDetailComponent implements OnInit {
     .subscribe(id => {
       this.contact = this.contactsService.getContactById(id);
     });
+
+    this.route.queryParamMap.subscribe(params => {
+      console.log("query params: ", params);
+    })
   }
 
 }
