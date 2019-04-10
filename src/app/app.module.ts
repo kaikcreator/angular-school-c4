@@ -21,6 +21,7 @@ const appRoutes: Routes = [
     ] 
   },
   { path: 'login', component: LoginComponent, data:{title: "Login"} },
+  { path: 'logout', component: LogOutComponent, outlet:'popup'},
   { path: 'not-found', component:NotFoundComponent, data:{title: "Ooops! 404"}},  
   { path: '',
     redirectTo: '/contacts',
