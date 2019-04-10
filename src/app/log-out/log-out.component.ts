@@ -12,6 +12,14 @@ export class LogOutComponent implements OnInit {
   ngOnInit() {
   }
 
+  cancel(){
+    this.closePopup();
+  }
+
+  leave(){
+    this.closePopup();
+  }  
+
   closePopup(){
     //do some stuff to close popup!
   }
