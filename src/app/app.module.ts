@@ -15,7 +15,11 @@ import { LogOutComponent } from './log-out/log-out.component';
 
 const appRoutes: Routes = [
   { path: 'contacts', component: ContactsListComponent, data:{title: "Contacts"} },
-  { path: 'contact-detail/:id', component: ContactDetailComponent, data:{title: "Contact detail"} },
+  { path: 'contact-detail', component: ContactDetailShellComponent, data:{title: "Contact detail"},
+    children: [
+      {path: ':id', component:ContactDetailComponent}
+    ] 
+  },
   { path: 'login', component: LoginComponent, data:{title: "Login"} },
   { path: 'not-found', component:NotFoundComponent, data:{title: "Ooops! 404"}},  
   { path: '',
