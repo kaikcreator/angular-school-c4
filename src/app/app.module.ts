@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ContactDetailShellComponent } from './contact-detail-shell/contact-detail-shell.component';
 import { ContactDetailEmptyComponent } from './contact-detail-empty/contact-detail-empty.component';
+import { LogOutComponent } from './log-out/log-out.component';
 
 const appRoutes: Routes = [
   { path: 'contacts', component: ContactsListComponent, data:{title: "Contacts"} },
@@ -34,7 +35,8 @@ const appRoutes: Routes = [
     LoginComponent,
     NotFoundComponent,
     ContactDetailShellComponent,
-    ContactDetailEmptyComponent
+    ContactDetailEmptyComponent,
+    LogOutComponent
   ],
   imports: [
     BrowserModule,
