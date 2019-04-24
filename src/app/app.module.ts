@@ -12,16 +12,22 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ContactDetailShellComponent } from './contact-detail-shell/contact-detail-shell.component';
 import { ContactDetailEmptyComponent } from './contact-detail-empty/contact-detail-empty.component';
 import { LogOutComponent } from './log-out/log-out.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const appRoutes: Routes = [
-  { path: 'contacts', component: ContactsListComponent, data:{title: "Contacts"} },
+  { path: 'contacts', 
+    component: ContactsListComponent, 
+    data:{title: "Contacts"},
+    canActivate: [ AuthGuard ]
+  },
   { path: 'contact-detail', component: ContactDetailShellComponent, data:{title: "Contact detail"},
     children: [
       {path: ':id', component:ContactDetailComponent}
-    ] 
+    ],
+    canActivate: [ AuthGuard ] 
   },
   { path: 'login', component: LoginComponent, data:{title: "Login"} },
-  { path: 'logout', component: LogOutComponent, outlet:'popup'},
+  { path: 'logout', component: LogOutComponent, outlet:'popup', canActivate : [ AuthGuard ]},
   { path: 'not-found', component:NotFoundComponent, data:{title: "Ooops! 404"}},  
   { path: '',
     redirectTo: '/contacts',
