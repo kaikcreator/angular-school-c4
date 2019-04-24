@@ -13,6 +13,7 @@ import { ContactDetailShellComponent } from './contact-detail-shell/contact-deta
 import { ContactDetailEmptyComponent } from './contact-detail-empty/contact-detail-empty.component';
 import { LogOutComponent } from './log-out/log-out.component';
 import { AuthGuard } from './auth/auth.guard';
+import { ContactDetailResolverService } from './contact-detail/contact-detail-resolver.service';
 
 const appRoutes: Routes = [
   { path: 'contacts', 
@@ -22,7 +23,9 @@ const appRoutes: Routes = [
   },
   { path: 'contact-detail', component: ContactDetailShellComponent, data:{title: "Contact detail"},
     children: [
-      {path: ':id', component:ContactDetailComponent}
+      { path: ':id', component:ContactDetailComponent, 
+        resolve:{ contact:ContactDetailResolverService }
+      }
     ],
     canActivate: [ AuthGuard ] 
   },
