@@ -17,7 +17,9 @@ export class LoginComponent implements OnInit {
   login(){
     this.authService.login().subscribe(user => {
       if(user != null){
-        this.router.navigate(['']);
+        const destination = this.authService.redirectUrl ? 
+        this.router.parseUrl(this.authService.redirectUrl) : '';
+        this.router.navigateByUrl(destination);
       }
     })
   }
