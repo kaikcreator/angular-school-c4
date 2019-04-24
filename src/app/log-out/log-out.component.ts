@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-log-out',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LogOutComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private authService:AuthService) { }
 
   ngOnInit() {
   }
@@ -18,11 +19,17 @@ export class LogOutComponent implements OnInit {
   }
 
   leave(){
-    this.closePopup();
+    this.authService.logout();
+    this.closePopup('login');
   }  
 
-  closePopup(){
-    this.router.navigate([{outlets: {popup:null}}]);
+  closePopup(redirectRoute?){
+    if(redirectRoute){
+      this.router.navigate([{outlets: {primary:redirectRoute, popup:null}}]);
+    }
+    else{
+      this.router.navigate([{outlets: {popup:null}}]);
+    }
   }
 
 }
