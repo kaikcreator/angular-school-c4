@@ -13,6 +13,7 @@ interface User{
 export class AuthService {
 
   public user:User = null;
+  public redirectUrl:string = null;
 
   constructor() {
     this.user = JSON.parse(localStorage.getItem("user"));
