@@ -14,6 +14,7 @@ const appRoutes: Routes = [
       canActivate: [ AuthGuard ]
     },
     { path: 'contact-detail', 
+      canLoad: [ AuthGuard ],
       loadChildren: './contact-detail/contact-detail.module#ContactDetailModule' //Angular 7 and below
       //loadChildren: () => import('./contact-detail/contact-detail.module').then(m => m.ContactDetailModule), //beyond Angular Ivy
     },
