@@ -13,6 +13,10 @@ const appRoutes: Routes = [
       data:{title: "Contacts"},
       canActivate: [ AuthGuard ]
     },
+    { path: 'contact-detail', 
+      loadChildren: './contact-detail/contact-detail.module#ContactDetailModule' //Angular 7 and below
+      //loadChildren: () => import('./contact-detail/contact-detail.module').then(m => m.ContactDetailModule), //beyond Angular Ivy
+    },
     { path: 'login', component: LoginComponent, data:{title: "Login"} },
     { path: 'logout', component: LogOutComponent, outlet:'popup', canActivate : [ AuthGuard ]},
     { path: 'not-found', component:NotFoundComponent, data:{title: "Ooops! 404"}},  
