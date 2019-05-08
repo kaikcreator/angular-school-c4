@@ -7,7 +7,7 @@ import { ContactDetailResolverService } from './contact-detail-resolver.service'
 import { AuthGuard } from '../auth/auth.guard';
 
 const contactDetailRoutes:Routes = [
-    { path: 'contact-detail', component: ContactDetailShellComponent, data:{title: "Contact detail"},
+  { path: '', component: ContactDetailShellComponent, data:{title: "Contact detail"},
     children: [
       { path: ':id', component:ContactDetailComponent, 
         resolve:{ contact:ContactDetailResolverService }
