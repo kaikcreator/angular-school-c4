@@ -10,10 +10,11 @@ import { AuthGuard } from './auth/auth.guard';
 const appRoutes: Routes = [
     { path: 'contacts', 
       component: ContactsListComponent, 
-      data:{title: "Contacts"},
+      data:{title: "Contacts", animation: 'contacts'},
       canActivate: [ AuthGuard ]
     },
-    { path: 'contact-detail', 
+    { path: 'contact-detail',
+      data: {animation: 'contact-details'}, 
       loadChildren: './contact-detail/contact-detail.module#ContactDetailModule' //Angular 7 and below
       //loadChildren: () => import('./contact-detail/contact-detail.module').then(m => m.ContactDetailModule), //beyond Angular Ivy
     },
