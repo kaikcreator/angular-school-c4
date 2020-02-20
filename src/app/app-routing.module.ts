@@ -15,8 +15,7 @@ const appRoutes: Routes = [
     },
     { path: 'contact-detail',
       data: {animation: 'contact-details'}, 
-      loadChildren: './contact-detail/contact-detail.module#ContactDetailModule' //Angular 7 and below
-      //loadChildren: () => import('./contact-detail/contact-detail.module').then(m => m.ContactDetailModule), //beyond Angular Ivy
+      loadChildren: () => import('./contact-detail/contact-detail.module').then(m => m.ContactDetailModule),
     },
     { path: 'login', component: LoginComponent, data:{title: "Login"} },
     { path: 'logout', component: LogOutComponent, outlet:'popup', canActivate : [ AuthGuard ]},
